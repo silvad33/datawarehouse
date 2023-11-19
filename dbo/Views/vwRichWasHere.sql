@@ -1,0 +1,2 @@
+CREATE VIEW vwRichWasHere AS
+SELECT 'RICH WAS HERE' AS RichWasHere, 'Here too' AS HUH
