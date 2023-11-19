@@ -1,0 +1,37 @@
+/*
+Purpose:
+*/
+CREATE VIEW [financial_mart].[FactAccountingSourceExplorer] AS
+
+SELECT 	[SubLedgerSource]
+      ,[JournalNumber]
+      ,[AccountingDate]
+      ,[VOUCHER]
+      ,[DocumentNumber]
+      ,[DocumentDate]
+      ,[JournalCategory]
+      ,[PostingType]
+      ,[PostingTypeDescription]
+      ,[SubLedgerDocumentDescription]
+      ,[LedgerAccount]
+      ,[SubLedgerTransactionCurrency]
+      ,[LedgerDimension]
+      ,[FactTransactionKey]
+      ,[IsCorrection]
+      ,[Side]
+      ,[SubLedgerAccountingCurrencyAmount]
+      ,[SubLedgerReportingCurrencyAmount]
+      ,[SubLedgerTransactionCurrencyAmount]
+      ,[MonetaryAmount]
+      ,[AccountingDistributionRecId]
+      ,[DestinationCompany]
+      ,[TypeEnumName]
+      ,[SourceDocumentRecId]
+      ,[SourceRelationType]
+      ,[MainAccountId]
+      ,[MainAccountName]
+      ,[SubLedgerPartyNumber]
+      ,[SubLedgerPartyName]
+      ,[LINEDOCUMENTREFERENCE]
+FROM [dbo].[FactAccountingSourceExplorer]
+GO
