@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[RSMFinancialDimensionStaging] (
+    [DEFINITIONGROUP]      NVARCHAR (60)  NOT NULL,
+    [EXECUTIONID]          NVARCHAR (90)  NOT NULL,
+    [ISSELECTED]           INT            NOT NULL,
+    [TRANSFERSTATUS]       INT            NOT NULL,
+    [LEDGERDIMENSION]      BIGINT         NOT NULL,
+    [LEVEL1]               INT            NOT NULL,
+    [NUMBEROFLEVELS]       INT            NOT NULL,
+    [ATTRIBUTEVALUE]       NVARCHAR (500) NOT NULL,
+    [HIERARCHYNAME]        NVARCHAR (60)  NOT NULL,
+    [HIERARCHYDESCRIPTION] NVARCHAR (60)  NOT NULL,
+    [ATTRIBUTENAME]        NVARCHAR (60)  NOT NULL,
+    [LEVEL2]               INT            NOT NULL,
+    [PARTITION]            NVARCHAR (20)  NOT NULL,
+    [SYNCSTARTDATETIME]    DATETIME       NOT NULL,
+    [RECID]                BIGINT         NOT NULL,
+    CONSTRAINT [PK_RSMFinancialDimensionStaging] PRIMARY KEY CLUSTERED ([EXECUTIONID] ASC, [LEDGERDIMENSION] ASC, [LEVEL1] ASC, [LEVEL2] ASC, [PARTITION] ASC)
+);
+

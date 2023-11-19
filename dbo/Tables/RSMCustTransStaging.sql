@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[RSMCustTransStaging] (
+    [DEFINITIONGROUP]         NVARCHAR (60)   NOT NULL,
+    [EXECUTIONID]             NVARCHAR (90)   NOT NULL,
+    [ISSELECTED]              INT             NOT NULL,
+    [TRANSFERSTATUS]          INT             NOT NULL,
+    [CUSTOMERACCOUNTNUM]      NVARCHAR (20)   NOT NULL,
+    [ACCOUNTINGEVENT]         BIGINT          NOT NULL,
+    [DOCUMENTNUM]             NVARCHAR (20)   NOT NULL,
+    [TRANSDATE]               DATETIME        NOT NULL,
+    [TRANSTYPE]               INT             NOT NULL,
+    [VOUCHER]                 NVARCHAR (20)   NOT NULL,
+    [DOCUMENTDATE]            DATETIME        NOT NULL,
+    [REPORTINGCURRENCYAMOUNT] NUMERIC (32, 6) NOT NULL,
+    [CUSTTRANSDATAAREAID]     NVARCHAR (4)    NOT NULL,
+    [CUSTTRANSRECID]          BIGINT          NOT NULL,
+    [PARTITION]               NVARCHAR (20)   NOT NULL,
+    [CURRENCYCODE]            NVARCHAR (3)    NOT NULL,
+    [TRANSTYPECOPY1]          INT             NOT NULL,
+    [TXT]                     NVARCHAR (512)  NOT NULL,
+    [INVOICE]                 NVARCHAR (20)   NOT NULL,
+    [DATAAREAID]              NVARCHAR (4)    NOT NULL,
+    [SYNCSTARTDATETIME]       DATETIME        NOT NULL,
+    [RECID]                   BIGINT          NOT NULL,
+    CONSTRAINT [PK_RSMCustTransStaging] PRIMARY KEY CLUSTERED ([EXECUTIONID] ASC, [CUSTTRANSRECID] ASC, [DATAAREAID] ASC, [PARTITION] ASC)
+);
+

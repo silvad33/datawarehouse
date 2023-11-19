@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[rsmSourceDocumentLineReferenceIdentityStaging] (
+    [DEFINITIONGROUP]                          NVARCHAR (60)    NOT NULL,
+    [EXECUTIONID]                              NVARCHAR (90)    NOT NULL,
+    [ISSELECTED]                               INT              NOT NULL,
+    [TRANSFERSTATUS]                           INT              NOT NULL,
+    [LINEDATE]                                 DATETIME         NOT NULL,
+    [LINEDESCRIPTION]                          NVARCHAR (1000)  NOT NULL,
+    [LINEDOCUMENTREFERENCE]                    NVARCHAR (20)    NOT NULL,
+    [LINENUMBER]                               NUMERIC (32, 16) NOT NULL,
+    [LINETEXT]                                 NVARCHAR (1000)  NOT NULL,
+    [LOCATION]                                 NVARCHAR (20)    NOT NULL,
+    [PARTITION1]                               BIGINT           NOT NULL,
+    [PROCUREMENTCATEGORY]                      NVARCHAR (254)   NOT NULL,
+    [PRODUCTNUMBER]                            NVARCHAR (255)   NOT NULL,
+    [QUANTITY]                                 NUMERIC (32, 6)  NOT NULL,
+    [RECID1]                                   BIGINT           NOT NULL,
+    [RECVERSION1]                              INT              NOT NULL,
+    [SOURCEDOCUMENTACCTEVENTREFERENCEIDENTITY] BIGINT           NOT NULL,
+    [SOURCEDOCUMENTLINE]                       BIGINT           NOT NULL,
+    [UNIT]                                     NVARCHAR (10)    NOT NULL,
+    [PARTITION]                                NVARCHAR (20)    NOT NULL,
+    [SYNCSTARTDATETIME]                        DATETIME         NOT NULL,
+    [RECID]                                    BIGINT           NOT NULL,
+    CONSTRAINT [PK_rsmSourceDocumentLineReferenceIdentityStaging] PRIMARY KEY CLUSTERED ([EXECUTIONID] ASC, [RECID1] ASC, [PARTITION] ASC)
+);
+

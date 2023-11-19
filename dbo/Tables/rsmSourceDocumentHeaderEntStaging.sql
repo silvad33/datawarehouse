@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[rsmSourceDocumentHeaderEntStaging] (
+    [DEFINITIONGROUP]    NVARCHAR (60) NOT NULL,
+    [EXECUTIONID]        NVARCHAR (90) NOT NULL,
+    [ISSELECTED]         INT           NOT NULL,
+    [TRANSFERSTATUS]     INT           NOT NULL,
+    [PARTITION]          NVARCHAR (20) NOT NULL,
+    [ACCOUNTINGSTATUS]   INT           NOT NULL,
+    [RECIDCOPY1]         BIGINT        NOT NULL,
+    [SOURCERELATIONTYPE] INT           NOT NULL,
+    [TYPEENUMNAME]       NVARCHAR (81) NOT NULL,
+    [TYPEENUMVALUE]      INT           NOT NULL,
+    [SYNCSTARTDATETIME]  DATETIME      NOT NULL,
+    [RECID]              BIGINT        NOT NULL,
+    CONSTRAINT [PK_rsmSourceDocumentHeaderEntStaging] PRIMARY KEY CLUSTERED ([EXECUTIONID] ASC, [RECIDCOPY1] ASC, [PARTITION] ASC)
+);
+
