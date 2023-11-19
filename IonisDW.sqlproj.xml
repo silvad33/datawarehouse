@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>IonisDW</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{084346a6-feba-4652-8d49-613450789546}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>IonisDW</RootNamespace>
+    <AssemblyName>IonisDW</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(NetCoreBuild)' != 'true' AND '$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(NetCoreBuild)' != 'true' AND '$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="clinical\" />
+    <Folder Include="clinical\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="mdr\" />
+    <Folder Include="mdr\Tables\" />
+    <Folder Include="research\" />
+    <Folder Include="research\Tables\" />
+    <Folder Include="shared\" />
+    <Folder Include="shared\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="pubs\" />
+    <Folder Include="pubs\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="mdr\Stored Procedures\" />
+    <Folder Include="clinical\Stored Procedures\" />
+    <Folder Include="research\Stored Procedures\" />
+    <Folder Include="External Resources\" />
+    <Folder Include="shared_mart" />
+    <Folder Include="shared_mart\Views" />
+    <Folder Include="financial_mart" />
+    <Folder Include="financial_mart\Views" />
+    <Folder Include="research\Functions" />
+    <Folder Include="legal\" />
+    <Folder Include="legal\Tables\" />
+    <Folder Include="legal\Stored Procedures\" />
+    <Folder Include="humanresources" />
+    <Folder Include="humanresources\Views" />
+    <Folder Include="financial" />
+    <Folder Include="financial\Tables" />
+    <Folder Include="mdr\Views" />
+    <Folder Include="research_mart" />
+    <Folder Include="tm" />
+    <Folder Include="tm\Tables" />
+    <Folder Include="tm\Stored Procedures" />
+    <Folder Include="tm\Functions" />
+    <Folder Include="tm\Views" />
+    <Folder Include="financial\Stored Procedures" />
+    <Folder Include="financial_mart\Tables" />
+    <Folder Include="financial\Functions" />
+    <Folder Include="financial\Views" />
+    <Folder Include="clinical\Views" />
+    <Folder Include="clinical_mart" />
+    <Folder Include="clinical_mart\Views" />
+    <Folder Include="clinical_mart\Tables" />
+    <Folder Include="research_mart\Views" />
+    <Folder Include="humanresources\Tables" />
+    <Folder Include="shared\Stored Procedures\" />
+    <Folder Include="humanresources\Stored Procedures" />
+    <Folder Include="humanresources\Functions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="clinical\Tables\StudyClinicalSiteCROs.sql" />
+    <Build Include="dbo\Tables\mdm_compound_names.sql" />
+    <Build Include="dbo\Tables\DimSupplier.sql" />
+    <Build Include="dbo\Tables\mdm_gene_names.sql" />
+    <Build Include="mdr\Tables\BIColumnInfo.sql" />
+    <Build Include="dbo\Tables\mdm_gene_symbols.sql" />
+    <Build Include="mdr\Tables\BIDependencies.sql" />
+    <Build Include="mdr\Tables\BIDistinctValues.sql" />
+    <Build Include="dbo\Tables\mdm_CompoundTerms.sql" />
+    <Build Include="dbo\Tables\rsmSourceDocumentHeaderEntStaging.sql" />
+    <Build Include="mdr\Tables\BIFindDistinctValues.sql" />
+    <Build Include="mdr\Tables\BIForeignKeyInfo.sql" />
+    <Build Include="mdr\Tables\BITableInfo.sql" />
+    <Build Include="research\Tables\CompoundGeneTerms.sql" />
+    <Build Include="mdr\Tables\BIViewColumnInfo.sql" />
+    <Build Include="dbo\Tables\CoupaPOHeader.sql" />
+    <Build Include="mdr\Tables\BIViewDistinctValues.sql" />
+    <Build Include="research\Tables\Compounds.sql" />
+    <Build Include="mdr\Tables\BIViewInfo.sql" />
+    <Build Include="dbo\Tables\D365User.sql" />
+    <Build Include="dbo\Tables\BuildingAccessUser.sql" />
+    <Build Include="mdr\Tables\DataEntities.sql" />
+    <Build Include="research\Tables\CompoundGenes.sql" />
+    <Build Include="mdr\Tables\DataEntityFields.sql" />
+    <Build Include="dbo\Tables\CoupaPOLine.sql" />
+    <Build Include="mdr\Tables\RSMLogit.sql" />
+    <Build Include="clinical\Tables\ScenarioStudySites.sql" />
+    <Build Include="dbo\Tables\PL_Crosswalk.sql" />
+    <Build Include="clinical\Tables\SiteSubjectRecruitment.sql" />
+    <Build Include="research\Tables\CompoundNames.sql" />
+    <Build Include="dbo\Tables\TranProjAllocation.sql" />
+    <Build Include="dbo\Tables\zRLC_AdaptiveBudgetStage.sql" />
+    <Build Include="clinical\Tables\StudyPerformanceMetrics.sql" />
+    <Build Include="research\Tables\GeneNames.sql" />
+    <Build Include="clinical\Tables\StudySitePerformance.sql" />
+    <Build Include="dbo\Tables\LedgerAccountStructureStaging.sql" />
+    <Build Include="research\Tables\GeneSymbols.sql" />
+    <Build Include="dbo\Tables\tblLocalMeritCalc.sql" />
+    <Build Include="dbo\Tables\rsmAccountingEventStaging.sql" />
+    <Build Include="research\Tables\MTIDGenes.sql" />
+    <Build Include="dbo\Tables\RSMCustTransStaging.sql" />
+    <Build Include="clinical\Tables\ClinicalOrganization.sql" />
+    <Build Include="clinical\Tables\StudySiteActivation.sql" />
+    <Build Include="dbo\Tables\DimFinancialDimensions.sql" />
+    <Build Include="dbo\Tables\RSMFinancialDimensionStaging.sql" />
+    <Build Include="dbo\Tables\rsmAccountingDistributionStaging.sql" />
+    <Build Include="dbo\Tables\RSMJournalDimensionCrosswalkStaging.sql" />
+    <Build Include="dbo\Tables\IonisUsers.sql" />
+    <Build Include="dbo\Tables\DimProject.sql" />
+    <Build Include="dbo\Tables\DimTask.sql" />
+    <Build Include="dbo\Tables\PostingTypeCrossReference.sql" />
+    <Build Include="dbo\Tables\DimDepartment.sql" />
+    <Build Include="dbo\Tables\DimFinancialCalendar.sql" />
+    <Build Include="shared\Tables\PhoneNumber.sql" />
+    <Build Include="dbo\Tables\GeneralJournalAccountEntryStaging.sql" />
+    <Build Include="shared\Tables\LocationInfo.sql" />
+    <Build Include="dbo\Tables\DimJobLevelCode.sql" />
+    <Build Include="dbo\Tables\SystemUserStaging.sql" />
+    <Build Include="dbo\Tables\MainAccountStaging.sql" />
+    <Build Include="clinical\Tables\ClinicalPrograms.sql" />
+    <Build Include="dbo\Tables\FinancialDimensionValueEntityStaging.sql" />
+    <Build Include="clinical\Tables\ScenarioBuilderOutput.sql" />
+    <Build Include="dbo\Tables\FactTransactionPL.sql" />
+    <Build Include="dbo\Tables\AliceTempLongShortEmails.sql" />
+    <Build Include="clinical\Tables\ScenarioBuilderInput.sql" />
+    <Build Include="dbo\Tables\DirPartyV2Staging.sql" />
+    <Build Include="dbo\Tables\OMOrganizationHierarchyPublishedV2Staging.sql" />
+    <Build Include="dbo\Tables\POHeader.sql" />
+    <Build Include="dbo\Tables\POLineAllocation.sql" />
+    <Build Include="dbo\Tables\BudgetRegisterEntryStaging.sql" />
+    <Build Include="dbo\Tables\DimUser.sql" />
+    <Build Include="dbo\Tables\AllEmployees_Snapshot.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyCohorts.sql" />
+    <Build Include="clinical\Tables\ClinicalSitePerson.sql" />
+    <Build Include="dbo\Tables\DimUser_BadUsersBackup_08282020.sql" />
+    <Build Include="dbo\Tables\OrganizationHierarchy.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyMilestones.sql" />
+    <Build Include="dbo\Tables\TotalingAccountTree.sql" />
+    <Build Include="clinical\Tables\CTMSData.sql" />
+    <Build Include="dbo\Tables\mdm_GeneTerms.sql" />
+    <Build Include="clinical\Tables\IVRSData.sql" />
+    <Build Include="clinical\Tables\RecruitmentScenarios.sql" />
+    <Build Include="dbo\Tables\MainAccountTotalAccountIntervalEntityStaging.sql" />
+    <Build Include="dbo\Tables\ExchangeRateEntityStaging.sql" />
+    <Build Include="dbo\Tables\InvoiceLine.sql" />
+    <Build Include="clinical\Tables\ScenarioParameters.sql" />
+    <Build Include="dbo\Tables\PubsUser.sql" />
+    <Build Include="clinical\Tables\StudyAnnotations.sql" />
+    <Build Include="clinical\Tables\StudyRecruitment.sql" />
+    <Build Include="clinical\Tables\StudySiteRecruitment.sql" />
+    <Build Include="dbo\Tables\POLine.sql" />
+    <Build Include="clinical\Tables\StudySiteActuals.sql" />
+    <Build Include="dbo\Tables\FiscalPeriodStaging.sql" />
+    <Build Include="dbo\Tables\PL_Crosswalk_AKCEA.sql" />
+    <Build Include="dbo\Tables\VendVendorBankAccountStaging.sql" />
+    <Build Include="dbo\Tables\DisplayValueExplosion.sql" />
+    <Build Include="dbo\Tables\DimHierarchy.sql" />
+    <Build Include="dbo\Tables\FactAccountingSourceExplorer.sql" />
+    <Build Include="dbo\Tables\ProjectAllocation.sql" />
+    <Build Include="dbo\Tables\BuildingAccessReportHist.sql" />
+    <Build Include="dbo\Tables\PLStage.sql" />
+    <Build Include="dbo\Tables\BuildingAccessActivity.sql" />
+    <Build Include="dbo\Tables\LedgerFiscalPeriodStaging.sql" />
+    <Build Include="dbo\Tables\EmployeeHierarchy.sql" />
+    <Build Include="dbo\Tables\VendVendorV2Staging.sql" />
+    <Build Include="dbo\Tables\rsmSourceDocumentLineReferenceIdentityStaging.sql" />
+    <Build Include="dbo\Tables\AssetFixedAssetStaging.sql" />
+    <Build Include="dbo\Tables\CompoundsAndGeneSymbols.sql" />
+    <Build Include="dbo\Tables\mdm_compounds.sql" />
+    <Build Include="dbo\Tables\AssetJournalEntityStaging.sql" />
+    <Build Include="dbo\Tables\mdm_compound_genes.sql" />
+    <Build Include="shared\Tables\Organization.sql" />
+    <Build Include="dbo\Views\vAD_FixedAssetDepreciation.sql" />
+    <Build Include="dbo\Views\vw_PL.sql" />
+    <Build Include="dbo\Views\V_VendorBankExtract.sql" />
+    <Build Include="dbo\Views\vAD_B_ActualsTransactions.sql" />
+    <Build Include="dbo\Views\vwtotalingAccountExplosion.sql" />
+    <Build Include="dbo\Views\vDimUser.sql" />
+    <Build Include="dbo\Views\vDimUserInfo.sql" />
+    <Build Include="dbo\Views\vwBuildingAccessUser.sql" />
+    <Build Include="dbo\Views\vwBuildingAccessActivity.sql" />
+    <Build Include="dbo\Views\vDimDepartment.sql" />
+    <Build Include="dbo\Views\vAD_A_ActualsSummaryA_2019.sql" />
+    <Build Include="dbo\Views\vAD_A_ActualsSummary_2019.sql" />
+    <Build Include="dbo\Views\ActiveEmployeeListing.sql" />
+    <Build Include="dbo\Views\vwFTEAccounts.sql" />
+    <Build Include="dbo\Views\FACTCOMMITMENTS.sql" />
+    <Build Include="dbo\Views\BLACKLINE.sql" />
+    <Build Include="dbo\Views\vw_PL_Akcea.sql" />
+    <Build Include="dbo\Views\BLACKLINE_RATES.sql" />
+    <Build Include="dbo\Views\vAD_A_ActualsSummary.sql" />
+    <Build Include="dbo\Views\vAD_A_ActualsSummarySubB.sql" />
+    <Build Include="dbo\Views\vAD_A_ActualsSummaryA.sql" />
+    <Build Include="dbo\Functions\IONIS_UltiCompanyToD365.sql" />
+    <Build Include="dbo\Functions\udf_StripHTML.sql" />
+    <Build Include="dbo\Functions\IONIS_FIELD.sql" />
+    <Build Include="dbo\Functions\ufn_DecryptString.sql" />
+    <Build Include="dbo\Functions\ufn_EncryptString.sql" />
+    <Build Include="dbo\Functions\fnEmpLookupForPubs.sql" />
+    <Build Include="dbo\Functions\fnEmpReportsToChain.sql" />
+    <Build Include="dbo\Functions\GLPeriodBalances.sql" />
+    <Build Include="dbo\Stored Procedures\spDimHierarchy.sql" />
+    <Build Include="dbo\Stored Procedures\CompoundsAndGeneSymbols_Recreate.sql" />
+    <Build Include="mdr\Stored Procedures\EmptyDB.sql" />
+    <Build Include="mdr\Stored Procedures\FindBIDiscinctValues.sql" />
+    <Build Include="mdr\Stored Procedures\LoadBIViewDiscinctValues.sql" />
+    <Build Include="mdr\Stored Procedures\SearchEverything.sql" />
+    <Build Include="mdr\Stored Procedures\sp_BIDependencies.sql" />
+    <Build Include="mdr\Stored Procedures\sp_BuildColumnInfo.sql" />
+    <Build Include="mdr\Stored Procedures\sp_BuildViewColumnInfo.sql" />
+    <Build Include="mdr\Stored Procedures\sp_LoadAll.sql" />
+    <Build Include="mdr\Stored Procedures\sp_LoadBIColumnInfo.sql" />
+    <Build Include="mdr\Stored Procedures\sp_LoadBIDiscinctValues.sql" />
+    <Build Include="dbo\Stored Procedures\spInitializeDimEmployee.sql" />
+    <Build Include="mdr\Stored Procedures\sp_LoadBIViewColumnInfo.sql" />
+    <Build Include="mdr\Stored Procedures\sp_LoadForeignKeyInfo.sql" />
+    <Build Include="mdr\Stored Procedures\sp_LoadTableInfo.sql" />
+    <Build Include="dbo\Stored Procedures\spLoadDimEmployee.sql" />
+    <Build Include="mdr\Stored Procedures\sp_LoadViewInfo.sql" />
+    <Build Include="mdr\Stored Procedures\sp_ResetDB.sql" />
+    <Build Include="mdr\Stored Procedures\spUpdateD365Table.sql" />
+    <Build Include="dbo\Stored Procedures\BoomiSelectInClause.sql" />
+    <Build Include="dbo\Stored Procedures\spD365SecurityMaster.sql" />
+    <Build Include="dbo\Stored Procedures\spD365Security.sql" />
+    <Build Include="dbo\Stored Procedures\spLoadFinacialModel.sql" />
+    <Build Include="dbo\Stored Procedures\spDimEntity.sql" />
+    <Build Include="dbo\Stored Procedures\spDimDepartment.sql" />
+    <Build Include="dbo\Stored Procedures\spDimFinancialCalendar.sql" />
+    <Build Include="dbo\Stored Procedures\spDimAccount.sql" />
+    <Build Include="dbo\Stored Procedures\spDimTask.sql" />
+    <Build Include="dbo\Stored Procedures\spEmployeeHierarchy.sql" />
+    <Build Include="dbo\Stored Procedures\spDimProject.sql" />
+    <Build Include="dbo\Stored Procedures\spFactTransaction.sql" />
+    <Build Include="dbo\Stored Procedures\spTotalingAccountExplosion.sql" />
+    <Build Include="dbo\Stored Procedures\spTotalAccountsCheck.sql" />
+    <Build Include="dbo\Stored Procedures\spFactAccountingSourceExplorer.sql" />
+    <Build Include="dbo\Stored Procedures\spPLCrosswalk.sql" />
+    <Build Include="dbo\Stored Procedures\spTotalingAccountInsert.sql" />
+    <Build Include="dbo\Stored Procedures\spTotalingAccount.sql" />
+    <Build Include="clinical\Stored Procedures\BaselinePlanAdjustment.sql" />
+    <Build Include="clinical\Stored Procedures\BaselinePlanAdjustment_Randomizations.sql" />
+    <Build Include="clinical\Stored Procedures\TransformScenarioInput.sql" />
+    <Build Include="clinical\Stored Procedures\TransformScenarioInput_Randomizations.sql" />
+    <Build Include="clinical\Stored Procedures\UpsertClinicalSitesFromBlob.sql" />
+    <Build Include="dbo\Stored Procedures\spFactTransactionPL.sql" />
+    <Build Include="dbo\Stored Procedures\spLoadOMOrganizationHierarchy.sql" />
+    <Build Include="dbo\Stored Procedures\spDimFinancialDimensions.sql" />
+    <Build Include="dbo\Stored Procedures\PubsRecordCompoundsAndTargetsWrite.sql" />
+    <Build Include="dbo\Stored Procedures\spLoadTotalingAccountTree.sql" />
+    <Build Include="dbo\Stored Procedures\spLoadDisplayValueExplosion.sql" />
+    <Build Include="dbo\Stored Procedures\sp_LoadPLStage.sql" />
+    <Build Include="dbo\Stored Procedures\RefreshCompoundTermsTbl.sql" />
+    <Build Include="dbo\Stored Procedures\spPLAllocation.sql" />
+    <Build Include="research\Stored Procedures\CompoundGeneTerms_Create.sql" />
+    <Build Include="dbo\Stored Procedures\RecreateCompoundTermsTbl.sql" />
+    <Build Include="Security\clinical_mart.sql" />
+    <Build Include="Security\legal.sql" />
+    <Build Include="Security\mdr.sql" />
+    <Build Include="Security\pubs.sql" />
+    <Build Include="Security\research.sql" />
+    <Build Include="Security\shared.sql" />
+    <Build Include="dbo\Views\vwRichWasHere.sql" />
+    <Build Include="dbo\Tables\Employee_Snapshot.sql" />
+    <Build Include="dbo\Tables\DimScenario.sql" />
+    <Build Include="dbo\Tables\DimScenarioType.sql" />
+    <Build Include="dbo\Functions\Scenario_CheckOfficialCount.sql" />
+    <Build Include="dbo\Tables\DBBuild.sql" />
+    <Build Include="Security\shared_mart.sql" />
+    <Build Include="Security\financial.sql" />
+    <Build Include="Security\financial_mart.sql" />
+    <Build Include="shared_mart\Views\DimAccount.sql" />
+    <Build Include="financial_mart\Views\POSecurity.sql" />
+    <Build Include="shared_mart\Views\DimDepartment.sql" />
+    <Build Include="shared_mart\Views\DimEntity.sql" />
+    <Build Include="shared_mart\Views\DimFinancialCalendar.sql" />
+    <Build Include="shared_mart\Views\DimHierarchy.sql" />
+    <Build Include="shared_mart\Views\DimProject.sql" />
+    <Build Include="shared_mart\Views\DimSupplier.sql" />
+    <Build Include="shared_mart\Views\DimTask.sql" />
+    <Build Include="financial_mart\Views\FactAccountingSourceExplorer.sql" />
+    <Build Include="financial_mart\Views\FACTINVOICEDETAILS.sql" />
+    <Build Include="financial_mart\Views\FACTINVOICESUMMARY.sql" />
+    <Build Include="financial_mart\Views\FACTPOLINEDETAILS.sql" />
+    <Build Include="financial_mart\Views\FACTPOLINESUMMARY.sql" />
+    <Build Include="financial_mart\Views\FACTPOSUMMARY.sql" />
+    <Build Include="financial_mart\Views\FactTransaction.sql" />
+    <Build Include="dbo\Stored Procedures\spAdaptiveImport.sql" />
+    <Build Include="research\Functions\fnCompoundPrimaryGeneFromNumber.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Snapshot_Refresh.sql" />
+    <Build Include="dbo\Tables\UltiproEmployeeStaging.sql" />
+    <Build Include="legal\Tables\LegalContracts.sql" />
+    <Build Include="legal\Tables\LegalOrganization.sql" />
+    <Build Include="legal\Tables\ContractContractTypes.sql" />
+    <Build Include="legal\Tables\ContractTarget.sql" />
+    <Build Include="legal\Tables\ContractTypes.sql" />
+    <Build Include="legal\Stored Procedures\UpsertContractsFromBlob.sql" />
+    <Build Include="dbo\Stored Procedures\Load_DimUser.sql" />
+    <Build Include="Security\humanresources.sql" />
+    <Build Include="humanresources\Views\vwUltiproEmployeeStaged.sql" />
+    <Build Include="dbo\Functions\udf_extractInteger.sql.sql" />
+    <Build Include="dbo\Tables\CovidEmployeeResponse.sql" />
+    <Build Include="dbo\Tables\CovidGuestResponse.sql" />
+    <Build Include="dbo\Functions\DbPricingTierGet.sql" />
+    <Build Include="dbo\Functions\DbPricingTierGetDefault.sql" />
+    <Build Include="dbo\Stored Procedures\DbScaleDown.sql" />
+    <Build Include="dbo\Stored Procedures\DbScaleUp.sql" />
+    <Build Include="research\Functions\fnTargetPrimaryGeneTermFromTerm.sql" />
+    <Build Include="financial_mart\Views\FACTADAPTIVESUMMARYEXPORT.sql" />
+    <Build Include="financial_mart\Views\FACTADAPTIVETRANSACTIONEXPORT.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyMilestones_rev.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyCountryMilestones.sql" />
+    <Build Include="clinical\Tables\ClinicalProgramMilestones.sql" />
+    <Build Include="dbo\Stored Procedures\spAdaptiveImportCapital.sql.sql" />
+    <Build Include="financial\Tables\Capital.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyDocuments.sql" />
+    <Build Include="clinical\Tables\ClinicalMilestoneGroups.sql" />
+    <Build Include="clinical\Tables\ClinicalMilestoneNames.sql" />
+    <Build Include="financial_mart\Views\FACTCAPITAL.sql" />
+    <Build Include="dbo\Stored Procedures\DbScaleUpNoWait.sql" />
+    <Build Include="dbo\Tables\DimDate.sql" />
+    <Build Include="dbo\Tables\JobHistory.sql" />
+    <Build Include="mdr\Views\vwASEDocuments.sql" />
+    <Build Include="dbo\Stored Procedures\spStartJob.sql" />
+    <Build Include="dbo\Stored Procedures\spEndJob.sql" />
+    <Build Include="clinical\Tables\StudyAdverseEvents.sql" />
+    <Build Include="clinical\Tables\StudyInclusionExclusionCriteria.sql" />
+    <Build Include="clinical\Tables\StudyInclusionExclusionFailures.sql" />
+    <Build Include="clinical\Tables\StudyProtocolDeviations.sql" />
+    <Build Include="clinical\Tables\StudySiteSubjects.sql" />
+    <Build Include="tm\Tables\Indications.sql" />
+    <Build Include="tm\Tables\ResearchIndications.sql" />
+    <Build Include="tm\Tables\AlternativeResearchTargetNames.sql" />
+    <Build Include="tm\Tables\Franchise.sql" />
+    <Build Include="tm\Tables\ResearchProject.sql" />
+    <Build Include="tm\Tables\ResearchProjectMilestoneType.sql" />
+    <Build Include="tm\Tables\ResearchProjectResearchIndications.sql" />
+    <Build Include="tm\Tables\ResearchProjectStatus.sql" />
+    <Build Include="tm\Tables\ResearchProjectStatusNames.sql" />
+    <Build Include="tm\Stored Procedures\spLoadIonisResearchTargets.sql" />
+    <Build Include="tm\Stored Procedures\spLoadResearchIndications.sql" />
+    <Build Include="tm\Stored Procedures\spLoadResearchProject.sql" />
+    <Build Include="tm\Stored Procedures\spLoadResearchProjectMilestones.sql" />
+    <Build Include="tm\Stored Procedures\spLoadResearchProjectResearchIndications.sql" />
+    <Build Include="tm\Stored Procedures\spLoadResearchProjectStatus.sql" />
+    <Build Include="tm\Stored Procedures\spLoadStgResearchData.sql" />
+    <Build Include="tm\Tables\IonisResearchTargets.sql" />
+    <Build Include="tm\Tables\ResearchProjectMilestones.sql" />
+    <Build Include="tm\Tables\StgResearchData.sql" />
+    <Build Include="tm\Tables\stgTargetSymbolMapping.sql" />
+    <Build Include="research\Tables\GeneTerms.sql" />
+    <Build Include="Security\tm.sql" />
+    <Build Include="tm\Tables\adfConfig.sql" />
+    <Build Include="tm\Tables\StgNeuroCandidateSelection.sql" />
+    <Build Include="tm\Tables\StgCVRCandidateSelection.sql" />
+    <Build Include="tm\Tables\StgCVRTargetValidation.sql" />
+    <Build Include="tm\Tables\StgMetabolicDCSelection.sql" />
+    <Build Include="tm\Tables\StgMetabolicTargetValidatio.sql" />
+    <Build Include="tm\Tables\StgNeuroTargetValidation.sql" />
+    <Build Include="tm\Tables\StgOncologyCandidateSelection.sql" />
+    <Build Include="tm\Tables\stgOncologyTargetValidation.sql" />
+    <Build Include="tm\Tables\StgPulmonaryDCSelection.sql" />
+    <Build Include="tm\Tables\stgPulmonaryTargetValidation.sql" />
+    <Build Include="tm\Tables\StgBiomarkersData.sql" />
+    <Build Include="tm\Stored Procedures\spLoadBaseTables.sql" />
+    <Build Include="tm\Stored Procedures\spPostStgTransform.sql" />
+    <Build Include="tm\Functions\fnBiomarkerMilestone.sql" />
+    <Build Include="tm\Tables\SharepointExtract.sql" />
+    <Build Include="tm\Views\vw_ResearchProjectCurrentMilestone.sql" />
+    <Build Include="tm\Stored Procedures\spLoadSharepointExtract.sql" />
+    <Build Include="financial\Tables\DimEmployee.sql" />
+    <Build Include="financial\Stored Procedures\spUltiProToDimEmployee.sql" />
+    <Build Include="financial_mart\Tables\FACTHEADCOUNT.sql" />
+    <Build Include="financial\Stored Procedures\spDimEmployeeToFactHeadcount.sql" />
+    <Build Include="financial\Functions\fnDimEmployeeByPeriod.sql" />
+    <Build Include="financial\Views\vEmployeeSnapshot.sql" />
+    <Build Include="dbo\Tables\ActiveEmployees.sql" />
+    <Build Include="clinical_mart\Views\AdverseEvents.sql" />
+    <Build Include="clinical_mart\Views\PlannedRandomizations.sql" />
+    <Build Include="clinical_mart\Views\PlannedSiteActivations.sql" />
+    <Build Include="clinical_mart\Views\Program.sql" />
+    <Build Include="clinical_mart\Views\ProtocolDeviations.sql" />
+    <Build Include="clinical_mart\Views\Site.sql" />
+    <Build Include="clinical_mart\Views\SiteActivation.sql" />
+    <Build Include="clinical_mart\Views\Study.sql" />
+    <Build Include="clinical_mart\Views\StudyAnnotations.sql" />
+    <Build Include="clinical_mart\Views\StudyCountry.sql" />
+    <Build Include="clinical_mart\Views\StudyCountryMilestones.sql" />
+    <Build Include="clinical_mart\Views\StudyMilestones.sql" />
+    <Build Include="clinical_mart\Views\SubjectScreening.sql" />
+    <Build Include="clinical_mart\Views\ProgramMilestones.sql" />
+    <Build Include="Security\clinical.sql" />
+    <Build Include="clinical\Tables\KPIConfig.sql" />
+    <Build Include="dbo\Functions\fnFindUnicode.sql" />
+    <Build Include="clinical_mart\Views\EnrollmentCounts.sql" />
+    <Build Include="dbo\Tables\DimensionAttributeStaging.sql" />
+    <Build Include="clinical_mart\Views\ScenarioData.sql" />
+    <Build Include="dbo\Tables\D365SecurityMaster.sql" />
+    <Build Include="dbo\Tables\RSMVendTransStaging.sql" />
+    <Build Include="dbo\Tables\FactTransaction.sql" />
+    <Build Include="dbo\Tables\AdaptiveRootAccounts.sql" />
+    <Build Include="dbo\Tables\RecordLog.sql" />
+    <Build Include="dbo\Tables\D365Admins.sql" />
+    <Build Include="dbo\Tables\IonisUsersV2.sql" />
+    <Build Include="dbo\Tables\LedgerEntityStaging.sql" />
+    <Build Include="dbo\Tables\PLExclusionDepartment.sql" />
+    <Build Include="dbo\Tables\D365Security.sql" />
+    <Build Include="dbo\Tables\PLExclusionAccount.sql" />
+    <Build Include="dbo\Tables\VendorInvoiceLineStaging.sql" />
+    <Build Include="dbo\Tables\DimEntity.sql" />
+    <Build Include="clinical\Tables\ClinicalSite.sql" />
+    <Build Include="dbo\Tables\zDEL_PATCHPOSTATUS_RLC.sql" />
+    <Build Include="dbo\Tables\InvoiceLineAllocation.sql" />
+    <Build Include="clinical\Tables\ClinicalStudy.sql" />
+    <Build Include="dbo\Tables\TotalingAccountExplosion.sql" />
+    <Build Include="clinical\Tables\ClinicalStudySites.sql" />
+    <Build Include="dbo\Tables\InvoiceHeader.sql" />
+    <Build Include="dbo\Tables\RSMSubLedgerJournalAccountEntryStaging.sql" />
+    <Build Include="shared\Tables\NameSynonyms.sql" />
+    <Build Include="shared\Tables\Address.sql" />
+    <Build Include="dbo\Tables\RSMSubLedgerJournalAccountEntryDistributionStaging.sql" />
+    <Build Include="shared\Tables\EmailAddress.sql" />
+    <Build Include="dbo\Tables\zzRLCBud.sql" />
+    <Build Include="dbo\Tables\RSMSubLedgerJournalEntryStaging.sql" />
+    <Build Include="shared\Tables\Person.sql" />
+    <Build Include="dbo\Tables\AliceTempSecurity.sql" />
+    <Build Include="dbo\Tables\StageLevelExplosion.sql" />
+    <Build Include="dbo\Tables\DimAccount.sql" />
+    <Build Include="clinical\Tables\PersonSiteRoles.sql" />
+    <Build Include="tm\Script.PostDeployment1.sql" />
+    <Build Include="research_mart\Views\CompoundTerms.sql" />
+    <Build Include="research_mart\Views\DimApprovalTasks.sql" />
+    <Build Include="research_mart\Views\DimCompound.sql" />
+    <Build Include="research_mart\Views\DimDelagateTasks.sql" />
+    <Build Include="research_mart\Views\DimFranchise.sql" />
+    <Build Include="research_mart\Views\DimFunctionalArea.sql" />
+    <Build Include="research_mart\Views\DimIonisAuthor.sql" />
+    <Build Include="research_mart\Views\DimSubmissinContentDataType.sql" />
+    <Build Include="research_mart\Views\DimTarget.sql" />
+    <Build Include="research_mart\Views\FACTPubsRecord.sql" />
+    <Build Include="research_mart\Views\Journals.sql" />
+    <Build Include="research_mart\Views\PubsMeeting.sql" />
+    <Build Include="research_mart\Views\vwPubsDimFranchise.sql" />
+    <Build Include="research_mart\Views\vwPubsDimFunctionalArea.sql" />
+    <Build Include="research_mart\Views\vwPubsDimIonisAuthor.sql" />
+    <Build Include="research_mart\Views\vwPubsDimSubmissinContentDataType.sql" />
+    <Build Include="research_mart\Views\vwPubsRecord.sql" />
+    <Build Include="research\Tables\PubsApprovalTasks.sql" />
+    <Build Include="research\Tables\PubsFranchise.sql" />
+    <Build Include="research\Tables\PubsFunctionalArea.sql" />
+    <Build Include="research\Tables\PubsJournals.sql" />
+    <Build Include="research\Tables\PubsLegacyCompoundsTemp.sql" />
+    <Build Include="research\Tables\PubsLegacyLookup.sql" />
+    <Build Include="research\Tables\PubsLegacyRecordCompound.sql" />
+    <Build Include="research\Tables\PubsLegacyRecordTarget.sql" />
+    <Build Include="research\Tables\PubsLegacyUserTemp.sql" />
+    <Build Include="research\Tables\PubsMeeting.sql" />
+    <Build Include="research\Tables\PubsRecord.sql" />
+    <Build Include="research\Tables\PubsRecordCompound.sql" />
+    <Build Include="research\Tables\PubsRecordFranchise.sql" />
+    <Build Include="research\Tables\PubsRecordFunctionalArea.sql" />
+    <Build Include="research\Tables\PubsRecordIonisAuthor.sql" />
+    <Build Include="research\Tables\PubsRecordSubmissinContentDataType.sql" />
+    <Build Include="research\Tables\PubsRecordTarget.sql" />
+    <Build Include="research\Tables\PubsSubmissionContent.sql" />
+    <Build Include="research\Tables\PubsSubmissionContentDataType.sql" />
+    <Build Include="research\Stored Procedures\PubsRecordCompoundsAndTargetsWrite.sql" />
+    <Build Include="Security\research_mart.sql" />
+    <Build Include="dbo\Tables\FreeTextInvoiceStaging.sql" />
+    <Build Include="financial\Views\vwBlacklineGlAccounts.sql" />
+    <Build Include="financial\Functions\fnGLPeriodBalances.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyQueries.sql" />
+    <Build Include="dbo\Views\vwCoupaInvoices.sql" />
+    <Build Include="dbo\Views\vwCoupaPurchaseOrders.sql" />
+    <Build Include="dbo\Tables\StgCoupaSuppliers.sql" />
+    <Build Include="dbo\Stored Procedures\spLoadDimSupplier.sql" />
+    <Build Include="clinical_mart\Views\Queries.sql" />
+    <Build Include="dbo\Views\vwEmployeeVaccinatedStatus.sql" />
+    <Build Include="financial\Tables\StgCoupaCommodities.sql" />
+    <Build Include="financial\Tables\StgCoupaCurrencies.sql" />
+    <Build Include="dbo\Tables\DimCurrency.sql" />
+    <Build Include="financial\Stored Procedures\spLoadDimCurrency.sql" />
+    <Build Include="research\Stored Procedures\GeneTerms_create.sql" />
+    <Build Include="dbo\Tables\DimCommodity.sql" />
+    <Build Include="financial\Stored Procedures\spLoadDimCommodity.sql" />
+    <Build Include="financial\Tables\StgCoupaContracts.sql" />
+    <Build Include="dbo\DimContract.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyPersonRoles.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyRoles.sql" />
+    <Build Include="clinical\Tables\ProjectPersonRoles.sql" />
+    <Build Include="clinical\Tables\ProjectPersons.sql" />
+    <Build Include="clinical\Tables\ProjectRoles.sql" />
+    <Build Include="clinical\Tables\ClinicalStudyPersons.sql" />
+    <Build Include="financial\Views\vwConcurUsers.sql" />
+    <Build Include="financial\Views\vwCoupaUsers.sql" />
+    <Build Include="dbo\Stored Procedures\spLoadDimUser.sql" />
+    <Build Include="financial\Tables\StgCoupaUsers.sql" />
+    <Build Include="financial\Tables\DimCoupaUsers.sql" />
+    <Build Include="financial\Stored Procedures\spLoadDimCoupaUser.sql" />
+    <Build Include="financial\Tables\xrefFreeTextInvoices.sql" />
+    <Build Include="humanresources\Tables\StgUltiproEmploymentDetails.sql" />
+    <Build Include="financial\Tables\StgUltiproEmployee.sql" />
+    <Build Include="shared\Stored Procedures\UpsertRecordsFromLake.sql" />
+    <Build Include="humanresources\Stored Procedures\LoadDimEmployee.sql" />
+    <Build Include="financial_mart\Views\FACTPOLINEINVOICESACCRUAL.sql" />
+    <Build Include="dbo\Tables\Tax1099FieldsStaging.sql" />
+    <Build Include="humanresources\Functions\fnGetStockLevelCode.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="IonisDW.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IonisDW.publish.xml" />
+    <None Include="tm\ResetBaseTables.sql" />
+  </ItemGroup>
+  <Import Condition="'$(NetCoreBuild)' == 'true'" Project="$(NETCoreTargetsPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <PackageReference Condition="'$(NetCoreBuild)' == 'true'" Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+  <Target Name="AfterClean">
+    <Delete Files="$(BaseIntermediateOutputPath)\project.assets.json" />
+  </Target>
+</Project>

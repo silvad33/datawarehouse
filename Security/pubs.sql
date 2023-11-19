@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [pubs]
+    AUTHORIZATION [dbo];
+

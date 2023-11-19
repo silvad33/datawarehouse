@@ -1,0 +1,35 @@
+/*
+Purpose:
+*/
+CREATE VIEW [shared_mart].[DimFinancialCalendar] AS
+
+SELECT 	[FiscalMonth]
+      ,[MonthNumer]
+      ,[MonthName]
+      ,[DayNumber]
+      ,[Year]
+      ,[FullDate]
+      ,[Quarter]
+      ,[FiscalYear]
+      ,[PeriodName]
+      ,[ShortName]
+      ,[StartDate]
+      ,[EndDate]
+      ,[Type]
+      ,[Calendar]
+      ,[CalendarType]
+      ,[Days]
+      ,[FiscalPeriodKey]
+      ,[CYTDFlag]
+      ,[PYTDFlag]
+      ,[CYQuarterToDate]
+      ,[PYQuarterToDate]
+      ,[CYMonthToDate]
+      ,[PYMonthToDate]
+      ,[Rolling12Closed]
+      ,[OpenClosed]
+      ,[EntityKey]
+      ,[LastClosedMonth]
+      ,[PQuarterToDate]
+FROM [dbo].[DimFinancialCalendar]
+GO

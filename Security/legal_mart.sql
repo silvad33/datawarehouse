@@ -1,0 +1,2 @@
+CREATE SCHEMA [legal_mart]
+	AUTHORIZATION [dbo];
