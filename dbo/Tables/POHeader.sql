@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[POHeader] (
+    [Entity]           VARCHAR (4)   NOT NULL,
+    [ID]               INT           NOT NULL,
+    [PO_Number]        VARCHAR (20)  NULL,
+    [Version]          INT           NULL,
+    [Requisition_ID]   INT           NULL,
+    [Prior_PO_Number]  VARCHAR (200) NULL,
+    [GMP_PO]           VARCHAR (10)  NULL,
+    [DepartmentKey]    INT           NULL,
+    [Capital_ID]       VARCHAR (50)  NULL,
+    [Capital_Item]     VARCHAR (500) NULL,
+    [RequesterKey]     INT           NULL,
+    [Order_Date]       DATETIME      NULL,
+    [SupplierKey]      INT           NULL,
+    [Status]           VARCHAR (100) NULL,
+    [Budgeted]         VARCHAR (10)  NULL,
+    [Exported]         VARCHAR (10)  NULL,
+    [Last_Exported_At] DATETIME      NULL,
+    [Internal_Revision] INT          NULL,
+    [Created_By]       VARCHAR (100) NULL,
+    [Created_At]       DATETIME      NULL,
+    [Updated_By]       VARCHAR (100) NULL,
+    [Updated_At]       DATETIME      NULL,
+    [WH_Created]       DATETIME      NULL
+);
+

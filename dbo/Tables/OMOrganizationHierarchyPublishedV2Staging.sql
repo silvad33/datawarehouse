@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[OMOrganizationHierarchyPublishedV2Staging] (
+    [DEFINITIONGROUP]               NVARCHAR (60)  NOT NULL,
+    [EXECUTIONID]                   NVARCHAR (90)  NOT NULL,
+    [ISSELECTED]                    INT            NOT NULL,
+    [TRANSFERSTATUS]                INT            NOT NULL,
+    [VALIDFROM]                     DATETIME       NOT NULL,
+    [VALIDTO]                       DATETIME       NOT NULL,
+    [HIERARCHYTYPE]                 NVARCHAR (60)  NOT NULL,
+    [CHILDORGANIZATIONNAME]         NVARCHAR (100) NOT NULL,
+    [CHILDORGANIZATIONPARTYNUMBER]  NVARCHAR (40)  NOT NULL,
+    [PARENTORGANIZATIONNAME]        NVARCHAR (100) NOT NULL,
+    [PARENTORGANIZATIONPARTYNUMBER] NVARCHAR (40)  NOT NULL,
+    [RELATIONSHIPTYPE]              NVARCHAR (20)  NOT NULL,
+    [PARTITION]                     NVARCHAR (20)  NOT NULL,
+    [SYNCSTARTDATETIME]             DATETIME       NOT NULL,
+    [RECID]                         BIGINT         NOT NULL,
+    CONSTRAINT [PK_OMOrganizationHierarchyPublishedV2Staging] PRIMARY KEY CLUSTERED ([EXECUTIONID] ASC, [VALIDFROM] ASC, [HIERARCHYTYPE] ASC, [CHILDORGANIZATIONPARTYNUMBER] ASC, [PARTITION] ASC)
+);
+

@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[FactTransactionPL] (
+    [AccountString]            NVARCHAR (500)  NOT NULL,
+    [TransactionDate]          DATETIME        NOT NULL,
+    [Scenario]                 VARCHAR (60)    NULL,
+    [TransactionDescription]   NVARCHAR (60)   NOT NULL,
+    [BudgetAmount]             NUMERIC (32, 6) NULL,
+    [IsAllocated]              VARCHAR (30)    NULL,
+    [RecID]                    BIGINT          NOT NULL,
+    [Partition]                NVARCHAR (20)   NOT NULL,
+    [AccountKey]               INT             NULL,
+    [DepartmentKey]            INT             NULL,
+    [ProjectKey]               INT             NULL,
+    [TaskKey]                  INT             NULL,
+    [FiscalPeriodKey]         INT             NOT NULL,
+    [EntityKey]                INT             NULL,
+    [TransactionAmount]        MONEY           NULL,
+    [ReportingCurrencyAmount]  MONEY           NULL,
+    [AccountingCurrencyAmount] MONEY           NULL,
+    [ReportingCurrencyCode]    VARCHAR (10)    NULL,
+    [AccountingCurrencyCode]   VARCHAR (10)    NULL,
+    [TransactionCurrencyCode]  VARCHAR (10)    NULL,
+    [InvoiceNumber]            VARCHAR (50)    NULL,
+    [SecurityKey]              INT             NULL,
+    [Voucher]                  VARCHAR (50)    NULL
+);
+

@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[FinancialDimensionValueEntityStaging] (
+    [DEFINITIONGROUP]         NVARCHAR (60) NOT NULL,
+    [EXECUTIONID]             NVARCHAR (90) NOT NULL,
+    [ISSELECTED]              INT           NOT NULL,
+    [TRANSFERSTATUS]          INT           NOT NULL,
+    [FINANCIALDIMENSION]      NVARCHAR (60) NOT NULL,
+    [LEGALENTITYID]           NVARCHAR (4)  NOT NULL,
+    [DIMENSIONVALUE]          NVARCHAR (30) NOT NULL,
+    [DESCRIPTION]             NVARCHAR (60) NOT NULL,
+    [ACTIVEFROM]              DATETIME      NOT NULL,
+    [ACTIVETO]                DATETIME      NOT NULL,
+    [ISSUSPENDED]             INT           NOT NULL,
+    [ISTOTAL]                 INT           NOT NULL,
+    [ISBLOCKEDFORMANUALENTRY] INT           NOT NULL,
+    [GROUPDIMENSION]          NVARCHAR (10) NOT NULL,
+    [OWNER]                   NVARCHAR (25) NOT NULL,
+    [ISBALANCING_PSN]         INT           NOT NULL,
+    [PARTITION]               NVARCHAR (20) NOT NULL,
+    [SYNCSTARTDATETIME]       DATETIME      NOT NULL,
+    CONSTRAINT [PK_FinancialDimensionValueEntityStaging] PRIMARY KEY CLUSTERED ([EXECUTIONID] ASC, [FINANCIALDIMENSION] ASC, [LEGALENTITYID] ASC, [DIMENSIONVALUE] ASC, [PARTITION] ASC)
+);
+
