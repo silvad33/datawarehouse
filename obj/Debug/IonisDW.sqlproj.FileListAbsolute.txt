@@ -1,0 +1,6 @@
+C:\Users\yassir.elyamani\source\repos\Data Warehouse\IonisDW\bin\Debug\IonisDW.dacpac
+C:\Users\yassir.elyamani\source\repos\Data Warehouse\IonisDW\bin\Debug\IonisDW.dll
+C:\Users\yassir.elyamani\source\repos\Data Warehouse\IonisDW\bin\Debug\IonisDW.pdb
+C:\Users\yassir.elyamani\source\repos\Data Warehouse\IonisDW\obj\Debug\IonisDW.sqlprojAssemblyReference.cache
+C:\Users\yassir.elyamani\source\repos\Data Warehouse\IonisDW\obj\Debug\IonisDW.dll
+C:\Users\yassir.elyamani\source\repos\Data Warehouse\IonisDW\obj\Debug\IonisDW.pdb

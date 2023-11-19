@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0">
+  <Operation Name="Rename Refactor" Key="125490c8-d030-4f9b-a27d-2f00ea89f8eb" ChangeDateTime="10/21/2020 22:27:28" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[DimFinancialCalendar].[FiscalPeriod_Key]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimFinancialCalendar]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FiscalPeriodKey]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="06a77b99-f7dd-49cf-b102-fe6d0b91787a" ChangeDateTime="10/21/2020 23:15:29" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[FactTransaction].[FiscalPeriod_Key]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FactTransaction]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FiscalPeriodKey]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1ab89380-cca0-4521-9feb-44a6cdad087e" ChangeDateTime="05/04/2021 19:20:55" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[TM].[adfConfig].[Franchise]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[TM].[adfConfig]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FranchiseName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="52a8d4af-9a94-4e43-81de-d84a6e3c226a" ChangeDateTime="05/06/2021 17:07:20" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[TM].[SharepointExtract].[SourceLastModifiedDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[TM].[SharepointExtract]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="dbLastModifiedDate" />
+  </Operation>
+</Operations>

@@ -1,0 +1,18 @@
+CREATE VIEW [research_mart].[PubsMeeting] AS 
+SELECT [PubsMeetingID]
+      ,[MeetingTitle]
+      ,[Location]
+      ,[StartTime]
+      ,[EndTime]
+      ,[Description]
+      ,[Category]
+      ,[AddedBy]
+      ,[MeetingLink]
+      ,[URLDescription]
+      ,[Created]
+      ,[Modified]
+      ,[CreatedByUserKey]
+      ,[DateCreated]
+      ,[DateModified]
+  FROM [research].[PubsMeeting]
+GO
